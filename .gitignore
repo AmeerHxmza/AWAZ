@@ -1,0 +1,46 @@
+# --- Secrets & local env (never commit) ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+venv/
+.venv/
+**/__pycache__/
+**/*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# --- Local databases & uploads ---
+*.db
+*.sqlite3
+
+# --- Node / Next.js ---
+node_modules/
+.next/
+out/
+build/
+
+# --- Tools & OS ---
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Deploy local artifacts ---
+.vercel

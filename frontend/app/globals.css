@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --app-surface: #f3f2ef;
+    --app-surface-mid: #faf9f7;
+    --app-elevated: #ffffff;
+    --app-border: #ddd9d0;
+    --app-ink: #1c1917;
+    --app-muted: #57534e;
+    /* Civic / institutional accent — not flat black */
+    --app-navy: #152b45;
+    --app-navy-hover: #0f2136;
+    --app-navy-muted: #2a4a6e;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    color: var(--app-ink);
+    background-color: var(--app-surface-mid);
+    background-image:
+      radial-gradient(ellipse 100% 60% at 50% -15%, rgba(21, 43, 69, 0.06), transparent 55%),
+      linear-gradient(180deg, var(--app-surface) 0%, var(--app-surface-mid) 38%, #f0eeea 100%);
+    background-attachment: fixed;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
+    @apply text-stone-900 font-semibold;
+    letter-spacing: -0.018em;
+  }
+
+  h1 {
+    letter-spacing: -0.022em;
+    line-height: 1.15;
+  }
+
+  .font-display {
+    font-family: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .surface-card {
+    @apply bg-white/95 border border-stone-300/80 rounded-sm backdrop-blur-sm;
+    box-shadow:
+      0 1px 0 rgba(28, 25, 23, 0.05),
+      0 8px 24px rgba(28, 25, 23, 0.04);
+  }
+
+  .surface-card-interactive {
+    @apply bg-white/95 border border-stone-300/80 rounded-sm backdrop-blur-sm transition-shadow duration-200;
+    box-shadow:
+      0 1px 0 rgba(28, 25, 23, 0.05),
+      0 8px 24px rgba(28, 25, 23, 0.04);
+  }
+
+  .surface-card-interactive:hover {
+    box-shadow:
+      0 1px 0 rgba(28, 25, 23, 0.06),
+      0 12px 28px rgba(28, 25, 23, 0.07);
+    border-color: rgba(168, 162, 158, 0.55);
+  }
+
+  .label-caps {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-500;
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  .link-subtle {
+    @apply text-[var(--app-navy-muted)] underline decoration-stone-300/90 underline-offset-[5px] hover:decoration-[var(--app-navy-muted)] hover:text-[var(--app-navy)];
+  }
+
+  .hero-rule {
+    @apply border-l-[3px] border-[var(--app-navy)] pl-6 sm:pl-8 -ml-px;
+  }
+
+  .btn-civic-primary {
+    @apply inline-flex justify-center items-center px-5 py-2.5 text-sm font-semibold text-white rounded-sm border transition-colors duration-200;
+    background-color: var(--app-navy);
+    border-color: var(--app-navy);
+  }
+
+  .btn-civic-primary:hover {
+    background-color: var(--app-navy-hover);
+    border-color: var(--app-navy-hover);
+  }
+
+  .btn-civic-secondary {
+    @apply inline-flex justify-center items-center px-5 py-2.5 text-sm font-semibold rounded-sm border border-stone-300 bg-white text-stone-900 transition-colors duration-200 hover:bg-stone-50 hover:border-stone-400;
+  }
+}
